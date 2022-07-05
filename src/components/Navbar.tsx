@@ -1,18 +1,12 @@
-import React from 'react'
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  Button,
-  TextField,
-  Grid,
-} from '@mui/material'
+import { AppBar, Toolbar, Typography, Grid } from '@mui/material';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import SearchBox from './SearchBox';
 
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+const styles = {
+	appBar: { bgcolor: 'white', color: 'black', padding: 1 },
+};
 
 // const Navbar = () => {
 //   return (
@@ -25,8 +19,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 //           <h4>Good Morning,Shiva!</h4>
 //         </div>
 //         <div>
-//           <h4>SearchBar</h4>
 //         </div>
+//           <h4>SearchBar</h4>
 //         <div>
 //           <h4>Notification Icon</h4>
 //         </div>
@@ -38,50 +32,35 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 //   )
 // }
 export default function ButtonAppBar() {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ bgcolor: 'white', color: 'black' }}>
-        <Toolbar>
-          <Grid container spacing={2}>
-            <Grid item xs={6} className="left-nav">
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                FinanceBD
-              </Typography>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Good Morning, Shiva!
-              </Typography>
-            </Grid>
-            <Grid item xs={6} className="right-nav" spacing={8}>
-              <div>
-                <TextField
-                  className="border"
-                  id="outlined-basic"
-                  label="Outlined"
-                  variant="outlined"
-                  sx={{ borderRadius: '20vh' }}
-                  style={{
-                    position: 'relative',
-                    height: '',
-                    borderRadius: 0,
-                    padding: '5px',
-                  }}
-                />
-              </div>
-              <div style={{ marginRight: '-170px' }}>
-                <NotificationsNoneIcon sx={{ color: '#7b61FF' }} />
-              </div>
-              <div style={{ marginRight: '-130px' }}>
-                <AccountCircleIcon />
-              </div>
-              <div>
-                <p>
-                  Shiva Michelle <KeyboardArrowDownIcon />
-                </p>
-              </div>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  )
+	return (
+		<AppBar elevation={0} position="fixed" sx={styles.appBar}>
+			<Toolbar>
+				<Grid container spacing={3} alignItems="center">
+					<Grid item md={2}>
+						<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+							FinanceBD
+						</Typography>
+					</Grid>
+					<Grid item xs={6}>
+						<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+							Good Morning, Shiva!
+						</Typography>
+					</Grid>
+					<Grid container item xs={4} spacing={3}>
+						<Grid item>
+							<SearchBox />
+						</Grid>
+						<Grid item>
+							<NotificationsNoneIcon sx={{ color: '#7b61FF' }} />
+						</Grid>
+						<Grid item display="flex" justifyContent="center" alignItems="end">
+							<AccountCircleIcon />
+							<Typography>Shiva Michelle </Typography>
+							<KeyboardArrowDownIcon />
+						</Grid>
+					</Grid>
+				</Grid>
+			</Toolbar>
+		</AppBar>
+	);
 }

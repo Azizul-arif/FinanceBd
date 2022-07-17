@@ -1,89 +1,105 @@
-import React from 'react'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Filler,
-  Legend,
-} from 'chart.js'
+import React, { Component } from 'react'
+import Chart from 'react-apexcharts'
+import { Box, Typography } from '@mui/material'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 
-import { Line } from 'react-chartjs-2'
-//import faker from 'faker'
+const styles = {
+  heading: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Filler,
-  Legend
-)
+  headingcolor: {
+    color: '#7B61FF',
+  },
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top' as const,
+  icon: {
+    marginTop: '0.3rem',
+    color: '#7B61FF',
+  },
+  chart: {
+    marginTop: '500px',
+    backgroundColor: '#7B61FF',
+  },
+  fill: {
+    colors: '#7B61FF',
+    type: 'gradient',
+    gradient: {
+      shade: 'light',
+      type: 'vertical',
+      shadeIntensity: 0,
+      opacityFrom: 0.7,
+      opacityTo: 0.0,
     },
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
-    },
+  },
+  chartbox: {
+    marginTop: '7rem',
   },
 }
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      fill: true,
-      label: 'Dataset 2',
-      //data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-}
-
-// const generateData = (n) => {
-//   const ret = []
-//   let y = 0
-//   for (let i = 0; i < n; i += 1) {
-//     y += Math.round(Math.random() * 10 - 5)
-//     ret.push({ x: i, y })
-//   }
-//   return ret
-// }
-// const data = generateData(100)
-
 const BarChart = () => {
-  //   const x = { data: chartData, viewport }
-
+  const charts = {
+    options: {
+      chart: {
+        id: 'basic-bar',
+        // sparkline: {
+        //   enabled: true,
+        // },
+      },
+      xaxis: {
+        categories: [
+          'Jan',
+          'Feb',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec',
+        ],
+      },
+    },
+    series: [
+      {
+        name: 'series-1',
+        data: [
+          0, 10000, 20000, 30000, 35000, 0, 20000, 35000, 0, 0, 42000, 45000,
+        ],
+      },
+    ],
+    // style: {
+    //   colors: ['#7B61FF'],
+    // },
+  }
   return (
     <div>
-      <div>
-        <h1>Cahrt</h1>
-        {/* <Paper>
-        <Chart data={chartData}>
-          <ArgumentAxis />
-          <ValueAxis />
+      <Box sx={styles.heading}>
+        <div>
+          <KeyboardArrowRightIcon sx={styles.icon} />
+        </div>
+        <div>
+          <Typography variant="h5" sx={styles.headingcolor}>
+            Reserve
+          </Typography>
+        </div>
+      </Box>
 
-          <LineSeries valueField="y" argumentField="x" />
-          <ZoomAndPan viewport={viewport} onViewportChange={viewportChange} />
-        </Chart>
-      </Paper> */}
-      </div>
       <div>
-        <h1>Cahrt</h1>
-        {/* <Line options={options} data={data} />; */}
+        <Box sx={styles.chartbox}>
+          <Chart
+            sx={styles.fill}
+            options={charts.options}
+            series={charts.series}
+            type="area"
+            width="1000"
+            height="500"
+            //color="#7B61FF"
+          />
+        </Box>
       </div>
     </div>
   )

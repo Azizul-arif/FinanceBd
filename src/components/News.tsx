@@ -57,17 +57,18 @@ const News = () => {
 
 			{numbers.map((item, i) => {
 				return (
-					<Paper elevation={3} sx={styles.newsBar}>
-						<Typography variant="h5" sx={styles.heading}>
-							<NewsItemSite
-								title="Fades preferred infaltion measures rose 4.7% in May,around multi-decade heights"
-								date=""
-							/>
-						</Typography>
-						<Typography sx={styles.date}>
-							<NewsItemSite title="" date="Jan 22,2022" />
-						</Typography>
-					</Paper>
+					<NewsItemSite
+						title="Fades preferred infaltion measures rose 4.7% in May,around multi-decade heights"
+						date="Jan 22,2022"
+					/>
+					// <Paper elevation={3} sx={styles.newsBar}>
+					// 	<Typography variant="h5" sx={styles.heading}>
+					// 		<NewsItemSite title="Fades preferred infaltion measures rose 4.7% in May,around multi-decade heights" />
+					// 	</Typography>
+					// 	<Typography sx={styles.date}>
+					// 		<NewsItemSite date="Jan 22,2022" />
+					// 	</Typography>
+					// </Paper>
 				);
 			})}
 		</div>

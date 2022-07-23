@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid, Box, Typography, Paper } from '@mui/material';
 
 const styles = {
 	newsHeading: {
@@ -52,11 +53,12 @@ type NewsItemProps = {
 
 const NewsItemSite = (props: NewsItemProps) => {
 	return (
-		<div>
-			<div>
-				{props.title} {props.date}
-			</div>
-		</div>
+		<Paper elevation={3} sx={styles.newsBar}>
+			<Typography variant="h5" sx={styles.heading}>
+				{props.title}
+			</Typography>
+			<Typography sx={styles.date}>{props.date}</Typography>
+		</Paper>
 	);
 };
 

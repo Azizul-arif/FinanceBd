@@ -1,5 +1,9 @@
 import React from 'react';
-import { Grid, Box, Typography, Paper } from '@mui/material';
+import { Grid, Box, Typography, Paper, ThemeProvider } from '@mui/material';
+import Theme from '../Theme';
+import { paper } from '../Theme';
+
+const theme = Theme;
 
 const styles = {
 	newsHeading: {
@@ -28,6 +32,7 @@ const styles = {
 		lineHeight: '18px',
 		fontWeight: '400',
 		color: '#767676',
+
 		marginTop: '6px',
 	},
 	heading: {
@@ -53,12 +58,14 @@ type NewsItemProps = {
 
 const NewsItemSite = (props: NewsItemProps) => {
 	return (
-		<Paper elevation={3} sx={styles.newsBar}>
-			<Typography variant="h5" sx={styles.heading}>
-				{props.title}
-			</Typography>
-			<Typography sx={styles.date}>{props.date}</Typography>
-		</Paper>
+		<ThemeProvider theme={theme}>
+			<Paper elevation={paper.elevation} sx={styles.newsBar}>
+				<Typography variant="h5" sx={styles.heading}>
+					{props.title}
+				</Typography>
+				<Typography sx={styles.date}>{props.date}</Typography>
+			</Paper>
+		</ThemeProvider>
 	);
 };
 

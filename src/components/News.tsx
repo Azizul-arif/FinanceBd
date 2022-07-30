@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Box, Typography, Paper } from '@mui/material';
+import { Grid, Box, Typography, Paper, ThemeProvider } from '@mui/material';
 import NewsItemSite from './News/NewsItemSite';
 
 const styles = {

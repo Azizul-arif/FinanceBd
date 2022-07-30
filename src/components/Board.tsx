@@ -1,12 +1,14 @@
 import React from 'react';
-import { List, Paper } from '@mui/material';
+import { colors, List, Paper } from '@mui/material';
 
-import { Grid, Box, Typography } from '@mui/material';
+import { Grid, Box, Typography, ThemeProvider } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AppsIcon from '@mui/icons-material/Apps';
 import BarChart from './BarChart';
 import { blue } from '@mui/material/colors';
 import News from './News';
+import Theme from './Theme';
+import { Colors, bottomLine } from './Theme';
 
 const styles = {
 	leftsideNav: {
@@ -25,13 +27,13 @@ const styles = {
 		lineHeight: '15px',
 		marginRight: '50px',
 	},
-	bottomLine: {
-		backgroundColor: '#EEEEEE',
-		height: '835px',
-		width: '1px',
-		display: 'inline-flex',
-		flexDirection: 'column',
-	},
+	// bottomLine: {
+	// 	backgroundColor: '#EEEEEE',
+	// 	height: '835px',
+	// 	width: '1px',
+	// 	display: 'inline-flex',
+	// 	flexDirection: 'column',
+	// },
 };
 
 const Board = () => {
@@ -39,7 +41,7 @@ const Board = () => {
 		<section style={{ marginTop: '90px' }}>
 			<div
 				style={{
-					backgroundColor: '#EEEEEE',
+					backgroundColor: Colors.secondary,
 					height: '1px',
 					width: '1700px',
 					marginBottom: '15px',
@@ -50,13 +52,13 @@ const Board = () => {
 				<Grid item xs={2} style={{ marginLeft: '-10px' }}>
 					<Box sx={styles.leftsideNav}>
 						<div>
-							<AppsIcon style={{ color: '#7B61FF' }} />
+							<AppsIcon style={{ color: Colors.primary }} />
 						</div>
 						<div>
 							<Typography
 								variant="h6"
 								sx={{
-									color: '#7B61FF',
+									color: Colors.primary,
 									marginTop: '-5px',
 								}}
 							>
@@ -86,7 +88,7 @@ const Board = () => {
 						</div>
 					</div>
 				</Grid>
-				<Box sx={styles.bottomLine}></Box>
+				<Box sx={bottomLine}></Box>
 				<Grid item xs={6}>
 					<BarChart />
 				</Grid>
